@@ -2,9 +2,10 @@
     "name": "easywechat/console",
     "description": "A command line for EasyWeChat Application.",
     "require": {
-        "symfony/process": "^4.0",
-        "symfony/console": "^4.0",
-        "overtrue/wechat": "dev-master"
+        "php": ">=7.0",
+        "symfony/process": "^3.0|^4.0",
+        "symfony/console": "^3.0|^4.0",
+        "overtrue/wechat": "^4.0"
     },
     "license": "MIT",
     "authors": [
@@ -16,12 +17,6 @@
     "autoload": {
         "psr-4": {
             "EasyWeChat\\Console\\": "./src"
-        }
-    },
-    "repositories": {
-        "g": {
-            "type": "path",
-            "url": "../wechat"
         }
     }
 }
