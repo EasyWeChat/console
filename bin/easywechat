@@ -1,4 +1,30 @@
 #!/usr/bin/env php
 <?php
+if (PHP_SAPI !== 'cli' || PHP_MAJOR_VERSION < 7) {
+    echo 'Warning: EasyWeChat Console Tool should be invoked via the CLI minimum version of PHP 7.0, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
+}
+$loaded = false;
 
-require __DIR__.'/../src/EasyWeChat.php';
+foreach (array(__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php') as $file) {
+    if (file_exists($file)) {
+        require $file;
+        $loaded = true;
+        break;
+    }
+}
+if (!$loaded) {
+    die(
+        'You need to set up the project dependencies using the following commands:' . PHP_EOL .
+        'wget http://getcomposer.org/composer.phar' . PHP_EOL .
+        'php composer.phar install' . PHP_EOL
+    );
+}
+
+use EasyWeChat\Console\Application;
+use EasyWeChat\Console\Commands\Payment\RsaPublicKey;
+
+$application = new Application();
+
+$application->add(new RsaPublicKey());
+
+$application->run();
