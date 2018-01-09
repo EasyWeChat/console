@@ -7,7 +7,8 @@
 ```shell
 $ composer require easywechat/console -vvv
 ```
-or install as a global command:
+
+Or install it globally:
 
 ```shell
 $ composer global require easywechat/console -vvv
@@ -17,7 +18,8 @@ $ composer global require easywechat/console -vvv
 
 ```shell
 $ ./vendor/bin/easywechat list
-// global
+
+# globally install
 $ easywechat list
 ```
 
