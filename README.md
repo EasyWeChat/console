@@ -1,17 +1,24 @@
-# console
+<h1 align="center"> EasyWeChat Console Tool </h1>
 
-A command line for EasyWeChat Application.
+<p align="center">A command line for EasyWeChat Application.</p>
 
 ## Installing
 
 ```shell
 $ composer require easywechat/console -vvv
 ```
+or install as a global command:
+
+```shell
+$ composer global require easywechat/console -vvv
+```
 
 ## Usage
 
 ```shell
 $ ./vendor/bin/easywechat list
+// global
+$ easywechat list
 ```
 
 ### Get payment RSA public key.
