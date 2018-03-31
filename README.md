@@ -37,6 +37,46 @@ $ ./vendor/bin/easywechat payment:rsa_public_key \
 # Public key of mch_id:14339221228 saved as ./public-14339221228.pem
 ```
 
+### List, Create, Delete Official Account menu structure.
+
+https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141013  
+https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141014  
+https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141015  
+
+```shell
+$ ./vendor/bin/easywechat menus:list_menus \
+    --app_id=14339221228 \
+    --secret=36YTbDmLgyQ52noqdxgwGiYy \
+    --token=mytoken \
+    --aes_key=0xp26B0rqlKFZPWbr5lQs4SVaugBnFjE0H1xE9rfePX
+    --file_output=/Users/overtrue/www/demo/menus.json 
+    
+# JSON menu structure of the Official Account output in /Users/overtrue/www/demo/menus.json
+```
+
+```shell
+$ ./vendor/bin/easywechat menus:create_menus \
+    --app_id=14339221228 \
+    --secret=36YTbDmLgyQ52noqdxgwGiYy \
+    --token=mytoken \
+    --aes_key=0xp26B0rqlKFZPWbr5lQs4SVaugBnFjE0H1xE9rfePX
+    --file=/Users/overtrue/www/demo/menus.json 
+    
+# Menu structure of the Official Account created/updated
+```
+
+```shell
+$ ./vendor/bin/easywechat menus:delete_menus \
+    --app_id=14339221228 \
+    --secret=36YTbDmLgyQ52noqdxgwGiYy \
+    --token=mytoken \
+    --aes_key=0xp26B0rqlKFZPWbr5lQs4SVaugBnFjE0H1xE9rfePX
+    --save=/Users/overtrue/www/demo/menus.json 
+    
+# Menu structure of the Official Account deleted
+# JSON menu structure saved as /Users/overtrue/www/demo/menus.json
+```
+
 ## License
 
 MIT

@@ -22,9 +22,15 @@ if (!$loaded) {
 
 use EasyWeChat\Console\Application;
 use EasyWeChat\Console\Commands\Payment\RsaPublicKey;
+use EasyWeChat\Console\Commands\Menus\ListMenus;
+use EasyWeChat\Console\Commands\Menus\CreateMenus;
+use EasyWeChat\Console\Commands\Menus\DeleteMenus;
 
 $application = new Application();
 
 $application->add(new RsaPublicKey());
+$application->add(new ListMenus());
+$application->add(new CreateMenus());
+$application->add(new DeleteMenus());
 
 $application->run();
