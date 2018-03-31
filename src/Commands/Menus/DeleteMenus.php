@@ -7,12 +7,11 @@ use EasyWeChat\Factory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Process\Process;
 
 /**
- * Class RsaPublicKey
+ * Class DeleteMenus
  *
- * @author overtrue <i@overtrue.me>
+ * @author froger_me <alex@froger.me>
  */
 class DeleteMenus extends Command
 {
@@ -56,11 +55,6 @@ class DeleteMenus extends Command
             'secret' => $secret,
             'token' => $token,
             'aes_key' => $aesKey,
-            'log' => [
-                'level'      => 'debug',
-                'permission' => 0777,
-                'file'       => __DIR__ . '/../../../../../../tmp/easywechat.log',
-            ]
         ]);
 
         $list = $app->menu->list();

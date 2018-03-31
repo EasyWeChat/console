@@ -7,12 +7,11 @@ use EasyWeChat\Factory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Process\Process;
 
 /**
- * Class RsaPublicKey
+ * Class CreateMenus
  *
- * @author overtrue <i@overtrue.me>
+ * @author froger_me <alex@froger.me>
  */
 class CreateMenus extends Command
 {
@@ -60,11 +59,6 @@ class CreateMenus extends Command
             'secret' => $secret,
             'token' => $token,
             'aes_key' => $aesKey,
-            'log' => [
-                'level'      => 'debug',
-                'permission' => 0777,
-                'file'       => __DIR__ . '/../../../../../../tmp/easywechat.log',
-            ]
         ]);
 
         try {
@@ -75,7 +69,6 @@ class CreateMenus extends Command
             } 
 
             $menusStructure = json_decode($content, true);
-            
 
             if (JSON_ERROR_NONE !== json_last_error()) {
                 $message = '';

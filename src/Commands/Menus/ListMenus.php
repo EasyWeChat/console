@@ -7,12 +7,11 @@ use EasyWeChat\Factory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Process\Process;
 
 /**
- * Class RsaPublicKey
+ * Class ListMenus
  *
- * @author overtrue <i@overtrue.me>
+ * @author froger_me <alex@froger.me>
  */
 class ListMenus extends Command
 {
@@ -56,11 +55,6 @@ class ListMenus extends Command
             'secret' => $secret,
             'token' => $token,
             'aes_key' => $aesKey,
-            'log' => [
-                'level'      => 'debug',
-                'permission' => 0777,
-                'file'       => __DIR__ . '/../../../../../../tmp/easywechat.log',
-            ]
         ]);
 
         $list = $app->menu->list();
@@ -75,7 +69,6 @@ class ListMenus extends Command
                 if (file_exists($jsonPath) && !is_writable($jsonPath)) {
                     throw new \Exception('The provided path is not a writable file.');
                 }
-
                 $fp = fopen($jsonPath, 'w');
                 fwrite($fp, json_encode($list, JSON_PRETTY_PRINT));
                 fclose($fp);
